@@ -1,5 +1,5 @@
 from services.bencode_service import BencodeService
-from models.torrent import Torrent
+from services.torrent_parser_service import TorrentParseService
 
 
 class TorrentParser():
@@ -11,7 +11,7 @@ class TorrentParser():
     def __enter__(self):
         metainfo = self._decode(self.file.read())
 
-        return Torrent(metainfo)
+        return TorrentParseService(metainfo)
 
     def __exit__(self, typ, value, tb):
         if typ is not None:
