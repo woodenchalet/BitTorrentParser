@@ -56,4 +56,3 @@ class Torrent():
             return None
 
         return FileService.calculate_formatted_size(piece_length)
-

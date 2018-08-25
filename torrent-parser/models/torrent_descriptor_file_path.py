@@ -15,6 +15,7 @@ class TorrentDescriptorFilePath():
 
     @property
     def paths(self):
+
         result = []
         paths = self._file_info.get('path')
 
@@ -23,6 +24,8 @@ class TorrentDescriptorFilePath():
         
         for path in paths:
             result.append(unicode(path))
+        
+        return result
     
     @property
     def crc_checksum(self):
