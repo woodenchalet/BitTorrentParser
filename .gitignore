@@ -9,3 +9,5 @@ gaepdb.py
 *.xml
 
 \.vscode/
+
+\.pytest_cache/v/cache/
