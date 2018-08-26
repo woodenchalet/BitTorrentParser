@@ -13,3 +13,9 @@ gaepdb.py
 \.pytest_cache/v/cache/
 
 torrent_parser/\.pytest_cache/v/cache/
+
+\.tox
+\env
+Bittorrent_Parser\.egg-info/
+
+\.pytest_cache/
