@@ -1,8 +1,10 @@
 # Torrent Parser
 
+Author: Yi Luo
+
 [![Build Status](https://travis-ci.com/woodenchalet/BitTorrentParser.svg?branch=master)](https://travis-ci.com/woodenchalet/BitTorrentParser)
 
-## Introduction
+A simple parser for .torrent file.
 
 ## Installation
 
@@ -12,4 +14,31 @@ subdirectory within your application's root directory
 
 ## Usage
 
-### Workflows via Contexts
+```python
+
+import sys
+
+from torrent_parser import TorrentParser
+
+path = sys.argv[1]
+
+parser = TorrentParser(path)
+
+torrent = parser.output_torrent_object()
+
+```
+
+## Workflows via Contexts
+
+Contexts allow you to build workflows easily,
+
+```python
+import sys
+
+from torrent_parser import TorrentParser
+
+path = sys.argv[1]
+
+with TorrentParser(path) as parser:
+    torrent = parser.output_torrent_object()
+```
