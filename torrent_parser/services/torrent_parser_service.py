@@ -108,10 +108,3 @@ class TorrentParseService():
         :rtype class:`Torrent`
         """
         return self.torrent
-
-    def output_dict(self):
-        self.torrent.__dict__
-
-    def output_json(self):
-        pass
-        # return json.dumps(vars(self.torrent).)

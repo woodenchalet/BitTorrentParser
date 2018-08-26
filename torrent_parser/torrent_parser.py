@@ -24,13 +24,6 @@ class TorrentParser():
 
         return TorrentParseService(metainfo).output_torrent_object()
 
-    def output_dict(self):
-        pass
-
-    def output_json(self):
-        pass
-        # return json.dumps(vars(self.torrent).)
-
     def __enter__(self):
         """
         The setup to enter the context manager and produce a parser
