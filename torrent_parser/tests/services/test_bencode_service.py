@@ -18,7 +18,7 @@ class BencodeServiceTestCase(unittest.TestCase):
             self.assertEqual(plain, result)
 
     def test_decode_negative_integer(self):
-                """To ensure decode integer works."""
+        """To ensure decode integer works."""
         plain = -42
         encoded = 'i-42e'
 
