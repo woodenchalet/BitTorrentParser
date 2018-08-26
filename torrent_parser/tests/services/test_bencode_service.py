@@ -57,7 +57,3 @@ class BencodeServiceTestCase(unittest.TestCase):
         bencodeService = BencodeService()
 
         self.assertRaises(UnboundLocalError, bencodeService.decode, encoded)
-
-
-if __name__ == '__main__':
-    unittest.main()
