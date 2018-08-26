@@ -9,4 +9,4 @@ install:
 
 script:
   - flake8 
-  - nosetests ./torrent_parser/tests --with-coverage --cover-erase
+  - pytest
