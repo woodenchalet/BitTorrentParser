@@ -51,3 +51,9 @@ class BencodeServiceTestCase(unittest.TestCase):
 
         result = BencodeService().decode(encoded)
         self.assertEqual(plain, result)
+
+    def test_decode_with_error_formate(self):
+        encoded = 'i042e'
+        bencodeService = BencodeService()
+
+        self.assertRaises(UnboundLocalError, bencodeService.decode, encoded)
