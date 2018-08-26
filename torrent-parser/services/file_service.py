@@ -2,9 +2,19 @@ from math import log
 
 
 class FileService():
+    """
+    The service class to deal with file related issue.
+    """
     @staticmethod
     def calculate_formatted_size(num):
-        """Human friendly file size"""
+        """
+        Calculate formatted file size with unit.
+
+        :param num: The size of file.
+        :type num: int
+
+        :return: the formatted file size with unit.
+        """
         unit_list = zip(['bytes', 'kB', 'MB', 'GB', 'TB', 'PB'], [
                         0, 0, 1, 2, 2, 2])
         if num > 1:
