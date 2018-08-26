@@ -55,11 +55,11 @@ class TorrentParser():
 
     def _decode_bencode(self):
         """
-        Decode the bencode and output the formatted mateinfo.
+        Decode the bencode and output the formatted meta info.
         """
         metainfo = BencodeService().decode(self.file.read())
         if not isinstance(metainfo, dict):
             raise TorrentFormatError(
-                'The formate of the torrent is not proper.')
+                'The format of the torrent is not proper.')
 
         return metainfo

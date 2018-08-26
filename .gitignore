@@ -11,3 +11,5 @@ gaepdb.py
 \.vscode/
 
 \.pytest_cache/v/cache/
+
+torrent_parser/\.pytest_cache/v/cache/
