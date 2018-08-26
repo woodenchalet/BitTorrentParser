@@ -9,4 +9,4 @@ install:
 
 script:
   - flake8 
-  - nosetests --with-coverage
+  - nosetests --with-coverage --cover-erase
