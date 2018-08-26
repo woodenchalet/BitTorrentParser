@@ -5,11 +5,10 @@ from services.torrent_parser_service import TorrentParseService
 class TorrentParser():
     def __init__(self, path):
         self.path = path
-        self.bencodeService = BencodeService()
         self.file = open(self.path, "rb")
 
     def __enter__(self):
-        metainfo = self._decode(self.file.read())
+        metainfo = BencodeService().decode(self.file.read())
 
         return TorrentParseService(metainfo)
 
@@ -18,6 +17,3 @@ class TorrentParser():
             print '** Exception %s: %r' % (typ.__name__, value)
 
         self.file.close()
-
-    def _decode(self, raw):
-        return self.bencodeService.decode(raw)

@@ -61,8 +61,12 @@ class TorrentParseService():
 
         return FileService.calculate_formatted_size(piece_length)
 
+    def output_torrent_object(self):
+        return self.torrent
+
     def output_dict(self):
         self.torrent.__dict__
 
     def output_json(self):
-        return json.dumps(vars(self.torrent))
+        pass
+        # return json.dumps(vars(self.torrent).)
