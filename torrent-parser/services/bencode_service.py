@@ -1,4 +1,3 @@
-import sys
 import logging
 
 BENCODE_LIST_TYPE = 'l'
@@ -42,12 +41,14 @@ class BencodeService():
 
     def decode(self, bencode):
         try:
-            result, length = self.decode_func[bencode[BENCODE_FILE_START_POSITION]](
-                bencode, BENCODE_FILE_START_POSITION)
+            result, length = self.decode_func[
+                bencode[BENCODE_FILE_START_POSITION]
+            ](bencode, BENCODE_FILE_START_POSITION)
         except (IndexError, KeyError, ValueError):
             logging.exception("not a valid bencoded string")
         if length != len(bencode):
-            logging.exception("invalid bencoded value (data after valid prefix)")
+            logging.exception(
+                "invalid bencoded value (data after valid prefix)")
         return result
 
     def decode_int(self, bencode, start):

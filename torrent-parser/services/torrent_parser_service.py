@@ -1,7 +1,6 @@
 import time
 import json
 
-from models.torrent_descriptor_file_path import TorrentDescriptorFilePath
 from models.torrent import Torrent
 from services.file_service import FileService
 from services.path_parser_service import PathParserService
@@ -41,11 +40,9 @@ class TorrentParseService():
 
     def _fetch_creation_date(self):
         date = self._metainfo.get('creation date')
-        if type(date) != type(1):
-            return ""
-        else:
-            return time.strftime(
-                '%Y-%m-%d %H:%M:%S', time.localtime(date))
+
+        return time.strftime(
+            '%Y-%m-%d %H:%M:%S', time.localtime(date))
 
     def _fetch_created_by(self):
         return self._metainfo.get('created by')
