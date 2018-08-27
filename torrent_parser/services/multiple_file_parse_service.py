@@ -5,6 +5,11 @@ PATH = 'path'
 
 
 class MultipleFileParseService(PathParserService):
+    """
+    The service class to fetch multiple files information descripted
+    in torrent.
+    """
+
     def __init__(self, file_info):
         super(MultipleFileParseService, self).__init__(file_info)
 

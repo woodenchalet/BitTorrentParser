@@ -5,6 +5,11 @@ NAME = 'name'
 
 
 class SingleFileParseService(PathParserService):
+    """
+    The service class to fetch the single file information descripted
+    in torrent.
+    """
+
     def __init__(self, file_info):
         super(SingleFileParseService, self).__init__(file_info)
 

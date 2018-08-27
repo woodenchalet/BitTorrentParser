@@ -44,6 +44,7 @@ with TorrentParser(path) as parser:
 ```
 
 ## JSON Output
+
 With code
 
 ```python
@@ -51,6 +52,33 @@ With code
                              sort_keys=True, indent=4)
     print json_output
 ```
+
+### Single file
+
+```json
+{
+    "announce_list": [
+        [
+            "http://torrent.ubuntu.com:6969/announce"
+        ],
+        [
+            "http://ipv6.torrent.ubuntu.com:6969/announce"
+        ]
+    ],
+    "created_by": null,
+    "creation_date": "2018-07-26 12:55:26",
+    "files": [
+        {
+            "crc_checksum": null,
+            "paths": "ubuntu-18.04.1-desktop-amd64.iso",
+            "size": "1.82 GB"
+        }
+    ],
+    "size": "512 kB",
+}
+```
+
+### Multiple file
 
 ```json
 {
