@@ -69,7 +69,6 @@ With code
     "creation_date": "2018-07-26 12:55:26",
     "files": [
         {
-            "crc_checksum": null,
             "paths": "ubuntu-18.04.1-desktop-amd64.iso",
             "size": "1.82 GB"
         }

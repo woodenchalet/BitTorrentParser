@@ -46,8 +46,11 @@ class TorrentParseService(object):
 
         files = info.get(FILES)
         if not files:
-            file_paths.append(SingleFileParseService(info)
-                              .parse_descriptor_file_path())
+            single_file = SingleFileParseService(
+                info).parse_descriptor_file_path()
+
+            del single_file.crc_checksum
+            file_paths.append(single_file)
             return file_paths
         else:
             for torrent_file in files:
