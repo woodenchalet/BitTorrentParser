@@ -26,6 +26,7 @@ class BencodeServiceTestCase(unittest.TestCase):
         self.assertEqual(plain, result)
 
     def test_decode_string(self):
+        """To ensure decode string works."""
         knownValue = (('spam', '4:spam'),
                       ('parrot sketch', '13:parrot sketch'))
 
@@ -34,6 +35,7 @@ class BencodeServiceTestCase(unittest.TestCase):
             self.assertEqual(plain, result)
 
     def test_decode_list(self):
+        """To ensure decode list works."""
         plain = ['parrot sketch', 42]
         encoded = 'l13:parrot sketchi42ee'
 
@@ -42,6 +44,7 @@ class BencodeServiceTestCase(unittest.TestCase):
         self.assertEqual(plain, result)
 
     def test_decode_dictionary(self):
+        """To ensure decode dictionary works."""
         plain = {
             'foo': 42,
             'bar': 'spam'
@@ -52,7 +55,8 @@ class BencodeServiceTestCase(unittest.TestCase):
         result = BencodeService().decode(encoded)
         self.assertEqual(plain, result)
 
-    def test_decode_with_error_formate(self):
+    def test_decode_with_error_format(self):
+        """To ensure appropriate error raised with wrong format."""
         encoded = 'i042e'
         bencodeService = BencodeService()
 
