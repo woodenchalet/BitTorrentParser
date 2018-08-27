@@ -1,6 +1,8 @@
-
-
 class Torrent():
+    """
+    The value object of the torrent.
+    """
+
     def __init__(self, files, title, creation_date,
                  created_by, announce_list, size):
         self.files = files
