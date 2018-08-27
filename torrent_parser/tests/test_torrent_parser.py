@@ -18,7 +18,7 @@ class TorrentParserTestCases(unittest.TestCase):
         expected_created_by = 'ia_make_torrent'
         expected_announce_list_length = 2
         expected_size = '512 kB'
-        expected_file_number = 118
+        expected_file_number = 119
 
         self.assertEquals(expected_title, torrent.title)
         self.assertEquals(expected_created_by, torrent.created_by)
