@@ -35,8 +35,6 @@ class TorrentParser():
         """
         metainfo = self._decode_bencode()
 
-        self.file.close()
-
         return TorrentParseService(metainfo)
 
     def __exit__(self, typ, value, tb):
@@ -47,8 +45,6 @@ class TorrentParser():
         if typ is not None:
             logging.exception('** Exception %s: %r' % (typ.__name__, value))
 
-        self.file.close()
-
     def _decode_bencode(self):
         """
         Decode the bencode and output the formatted meta info.
@@ -57,6 +53,9 @@ class TorrentParser():
         is not dictionary.
         """
         metainfo = BencodeService().decode(self.file.read())
+
+        self.file.close()
+
         if not isinstance(metainfo, dict):
             raise TorrentFormatError(
                 'The format of the torrent is not proper.')
