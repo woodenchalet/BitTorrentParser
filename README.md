@@ -43,7 +43,14 @@ with TorrentParser(path) as parser:
     torrent = parser.output_torrent_object()
 ```
 
-## Output format
+## JSON Output
+With code
+
+```python
+    json_output = json.dumps(torrent, default=lambda o: o.__dict__,
+                             sort_keys=True, indent=4)
+    print json_output
+```
 
 ```json
 {
