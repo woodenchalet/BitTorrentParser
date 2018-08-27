@@ -35,6 +35,8 @@ class TorrentParser():
         """
         metainfo = self._decode_bencode()
 
+        self.file.close()
+
         return TorrentParseService(metainfo)
 
     def __exit__(self, typ, value, tb):
