@@ -5,6 +5,15 @@ from services.file_service import FileService
 from services.path_parser_service import PathParserService
 
 
+INFO = 'info'
+FILES = 'files'
+TITLE = 'title'
+CREATION_DATE = 'creation date'
+CREATE_BY = 'created by'
+ANNOUNCE_LIST = 'announce-list'
+PIECE_LENGTH = 'piece length'
+
+
 class TorrentParseService():
     """
     The service class to fetch the torrent information
@@ -29,11 +38,11 @@ class TorrentParseService():
         """
         file_paths = []
 
-        info = self._metainfo.get('info')
+        info = self._metainfo.get(INFO)
         if not info:
             return None
 
-        files = info.get('files')
+        files = info.get(FILES)
         if not files:
             return None
 
@@ -50,7 +59,7 @@ class TorrentParseService():
         :return: The torrent title.
         :rtype string
         """
-        return self._metainfo.get('title')
+        return self._metainfo.get(TITLE)
 
     def _fetch_creation_date(self):
         """
@@ -59,7 +68,7 @@ class TorrentParseService():
         :return: The torrent creation date
         :rtype string
         """
-        date = self._metainfo.get('creation date')
+        date = self._metainfo.get(CREATION_DATE)
 
         return time.strftime(
             '%Y-%m-%d %H:%M:%S', time.localtime(date))
@@ -71,7 +80,7 @@ class TorrentParseService():
         :return: The client create the torrent.
         :rtype string
         """
-        return self._metainfo.get('created by')
+        return self._metainfo.get(CREATE_BY)
 
     def _fetch_announce_list(self):
         """
@@ -80,7 +89,7 @@ class TorrentParseService():
         :return: The list of tracker URL
         :rtype list
         """
-        return self._metainfo.get('announce-list')
+        return self._metainfo.get(ANNOUNCE_LIST)
 
     def _fetch_size(self):
         """
@@ -89,11 +98,11 @@ class TorrentParseService():
         :return: the formatted size of torrent
         :rtype string
         """
-        info = self._metainfo.get('info')
+        info = self._metainfo.get(INFO)
         if not info:
             return None
 
-        piece_length = info.get('piece length')
+        piece_length = info.get(PIECE_LENGTH)
         if not piece_length:
             return None
 

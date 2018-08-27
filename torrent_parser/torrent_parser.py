@@ -9,6 +9,7 @@ class TorrentParser():
     """
     The parser to parse raw torrent to formatted output.
     """
+
     def __init__(self, path):
         self.path = path
         self.file = open(self.path, 'rb')
@@ -49,6 +50,9 @@ class TorrentParser():
     def _decode_bencode(self):
         """
         Decode the bencode and output the formatted meta info.
+
+        :raises TorrentFormatError: When the format of the torrent
+        is not dictionary.
         """
         metainfo = BencodeService().decode(self.file.read())
         if not isinstance(metainfo, dict):

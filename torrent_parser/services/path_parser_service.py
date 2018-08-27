@@ -1,6 +1,10 @@
 from services.file_service import FileService
 from models.torrent_descriptor_file_path import TorrentDescriptorFilePath
 
+LENGTH = 'length'
+PATH = 'path'
+CRC_CHECKSUM = 'crc32'
+
 
 class PathParserService():
     """
@@ -28,7 +32,7 @@ class PathParserService():
 
         :return: file size in formatted output.
         """
-        length = self._file_info.get('length')
+        length = self._file_info.get(LENGTH)
         if not length:
             return None
 
@@ -41,7 +45,7 @@ class PathParserService():
         :return: file size in formatted output.
         """
         result = []
-        paths = self._file_info.get('path')
+        paths = self._file_info.get(PATH)
 
         if not paths:
             return result
@@ -57,4 +61,4 @@ class PathParserService():
 
         :return: The CRC checksum.
         """
-        return self._file_info.get('crc32')
+        return self._file_info.get(CRC_CHECKSUM)
