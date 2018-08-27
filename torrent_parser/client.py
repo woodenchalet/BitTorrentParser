@@ -11,6 +11,6 @@ path = sys.argv[1]
 
 with TorrentParser(path) as parser:
     torrent = parser.output_torrent_object()
-    json_output = json.dumps(torrent, default=lambda o: o.__dict__, 
-            sort_keys=True, indent=4)
+    json_output = json.dumps(torrent, default=lambda o: o.__dict__,
+                             sort_keys=True, indent=4)
     print json_output
