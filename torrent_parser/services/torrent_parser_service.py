@@ -2,7 +2,8 @@ import time
 
 from models.torrent import Torrent
 from services.file_service import FileService
-from services.path_parser_service import PathParserService
+from services.multiple_file_parse_service import MultipleFileParseService
+from services.single_file_parse_service import SingleFileParseService
 
 
 INFO = 'info'
@@ -14,11 +15,12 @@ ANNOUNCE_LIST = 'announce-list'
 PIECE_LENGTH = 'piece length'
 
 
-class TorrentParseService():
+class TorrentParseService(object):
     """
     The service class to fetch the torrent information
     from matadata dictory.
     """
+
     def __init__(self, metainfo):
         self._metainfo = metainfo
         self.torrent = Torrent(
@@ -44,11 +46,13 @@ class TorrentParseService():
 
         files = info.get(FILES)
         if not files:
-            return None
-
-        for torrent_file in files:
-            file_paths.append(PathParserService(torrent_file)
+            file_paths.append(SingleFileParseService(info)
                               .parse_descriptor_file_path())
+            return file_paths
+        else:
+            for torrent_file in files:
+                file_paths.append(MultipleFileParseService(torrent_file)
+                                  .parse_descriptor_file_path())
 
         return file_paths
 

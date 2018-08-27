@@ -1,7 +1,7 @@
 from math import log
 
 
-class FileService():
+class FileService(object):
     """
     The service class to deal with file related issue.
     """

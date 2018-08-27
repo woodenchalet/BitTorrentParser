@@ -21,7 +21,7 @@ COLON = ':'
 DASH = '-'
 
 
-class BencodeService():
+class BencodeService(object):
     """
     The service class to decode bencode string.
     """
